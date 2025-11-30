@@ -1,3 +1,6 @@
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.181.0/build/three.module.js';
+import { CSS3DRenderer, CSS3DObject } from 'https://cdn.jsdelivr.net/npm/three@0.181.0/examples/jsm/renderers/CSS3DRenderer.js';
+
 let camera, scene, renderer;
 let objects = [];
 let targets = { table: [], sphere: [], helix: [], grid: [] };
@@ -11,7 +14,7 @@ function init() {
 
     scene = new THREE.Scene();
 
-    renderer = new THREE.CSS3DRenderer();
+    renderer = new CSS3DRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.getElementById('container').appendChild(renderer.domElement);
 
@@ -52,7 +55,7 @@ function populateTiles(data) {
         element.textContent = data[i].name;
         element.style.background = getColorByNetWorth(data[i].netWorth);
 
-        const obj = new THREE.CSS3DObject(element);
+        const obj = new CSS3DObject(element);
         scene.add(obj);
         objects.push(obj);
 
